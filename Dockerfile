@@ -24,3 +24,12 @@ COPY your_script.sh .
 
 # Specify the command to run when the container starts
 CMD ["bash"]
+
+# Copy the linting script into the container
+COPY lint.sh /usr/local/bin/lint.sh
+
+# Make the linting script executable
+RUN chmod +x /usr/local/bin/lint.sh
+
+# Set the entry point for the container
+ENTRYPOINT ["/usr/local/bin/lint.sh"]
